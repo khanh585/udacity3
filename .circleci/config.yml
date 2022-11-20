@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-            ansible-playbook -i [inventory-file] [playbook-file]
+            ansible-playbook -i inventory.txt ansible.cfg
 # Sequential workflow
 workflows:
   # Name the workflow
