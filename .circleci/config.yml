@@ -7,21 +7,21 @@ orbs:
 # Define the jobs we want to run for this project
 jobs:
   configure_infrastructure: 
-  docker:
-    - image: python:3.7-alpine3.11
-  steps:
-    - checkout
-    - add_ssh_keys:
-            # You can get this ID in the section where you registered the SSH Key
-            fingerprints: ["49:cc:67:ac:98:8a:dc:d3:fc:08:ae:38:d4:bc:b0:43"] 
-    - run:
-        name: Install Ansible
-        command: |
-          apk add --update ansible
-    - run:
-        name: Run Playbook and Configure server
-        command: |
-          ansible-playbook -i [inventory-file] [playbook-file]
+    docker:
+      - image: python:3.7-alpine3.11
+    steps:
+      - checkout
+      - add_ssh_keys:
+              # You can get this ID in the section where you registered the SSH Key
+              fingerprints: ["49:cc:67:ac:98:8a:dc:d3:fc:08:ae:38:d4:bc:b0:43"] 
+      - run:
+          name: Install Ansible
+          command: |
+            apk add --update ansible
+      - run:
+          name: Run Playbook and Configure server
+          command: |
+            ansible-playbook -i [inventory-file] [playbook-file]
 # Sequential workflow
 workflows:
   # Name the workflow
