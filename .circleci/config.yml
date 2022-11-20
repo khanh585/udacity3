@@ -7,20 +7,20 @@ orbs:
 # Define the jobs we want to run for this project
 jobs:
   smoke_test:
- docker:
-   - image: alpine:latest
- steps:
-   - run:
-       name: smoke test
-       command: |
-         URL="https://blog.udacity.com/"
-         # Test if website exists
-         if curl -s --head ${URL} 
-         then
-           return 0
-         else
-           return 1
-         fi
+  docker:
+    - image: alpine:latest
+  steps:
+    - run:
+        name: smoke test
+        command: |
+          URL="https://blog.udacity.com/"
+          # Test if website exists
+          if curl -s --head ${URL} 
+          then
+            return 0
+          else
+            return 1
+          fi
 # Sequential workflow
 workflows:
   # Name the workflow
